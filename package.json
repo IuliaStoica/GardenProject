@@ -1,5 +1,5 @@
 {
-  "name": "react_skeleton_from_scratch",
+  "name": "garden_project",
   "version": "1.0.0",
   "private": true,
   "description": "",
@@ -22,6 +22,7 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "node-fetch": "^2.6.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
