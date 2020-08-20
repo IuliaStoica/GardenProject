@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import "./Garden.css";
 import PlantItem from "./PlantItem";
 const fetch = require('node-fetch');
 
 const apiToken = 'Q7MaNoyuQYEtFH-qZWl3aUShTIeXyBGfkNhxiisWUZo';
 const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-const apiUrl   = `https://trefle.io/api/v1/plants?token=${apiToken}`;
 
 class Garden extends Component {
 
@@ -12,6 +12,7 @@ class Garden extends Component {
     super(props);
  
     this.state = {
+      plantsInGardenIds: [678281, 173327, 190500, 126957, 167888, 0, 143075, 189539, 137834, 124198],
       plantsInGarden: null,
       isFetching: true,
       error: null
@@ -19,38 +20,48 @@ class Garden extends Component {
   }
 
   componentDidMount() {
-    this.setState({ isFetching: true });
- 
-    (async () => {
+
+    const fetchedPlantsInGarden = this.state.plantsInGardenIds.map(async p => {
+        let apiUrl = `https://trefle.io/api/v1/plants/${p}?token=${apiToken}`;
         try {
           const response = await fetch(proxyUrl + apiUrl);
           const jsonData = await response.json();
-          console.log(response);
-          console.log(jsonData);
+          //console.log(response);
+          //console.log(jsonData);
           if (!response.ok) {
             console.log("Response was not ok");
             throw new Error(response.statusText);
           } else {
-            this.setState({ plantsInGarden: jsonData, isFetching: false });
+            console.log("Response was ok");
+            return {data: {...jsonData.data}, error: false};
           }
         } catch (error) {
-          this.setState({ error: 'Something went wrong', isFetching: false });
           console.log("Catched an error");
           console.log(error);
+          return { data: {main_species_id: p}, error: true};
         }
-    })();
+      });
+
+    Promise.all(fetchedPlantsInGarden).then((results) => {  
+      this.setState({ plantsInGarden: results, isFetching: false });
+    });
   }
 
   render() {
+    let plantsToRender = [];
+    if (!this.state.isFetching) {
+      plantsToRender = this.state.plantsInGarden.map(p => (
+        <PlantItem key={p.data.main_species_id} id={p.data.main_species_id} error={p.error}/>
+      ));
+    }
+
     return (
-      <div>
+      <div className='Garden'>
         <p>Hello from garden component</p>
-        { this.state.isFetching && <div>Fetching garden items...</div> }
-        { !this.state.isFetching && 
-          <div>
-            {this.state.plantsInGarden.data.map((p) => (<PlantItem id={p.id} />))}
-          </div> 
-        }
+        <div className='Garden-plant-items'>
+          { this.state.isFetching && <p>Fetching garden items...</p> }
+          { plantsToRender }
+        </div>
       </div>
     );
   }

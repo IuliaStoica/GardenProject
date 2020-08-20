@@ -1,0 +1,10 @@
+.PlantItem {
+    width: 20%;
+    height: 25%;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 3px;
+    margin: 0.5rem;
+    padding: 10px;
+    background-color: white;
+}
