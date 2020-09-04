@@ -14,7 +14,6 @@ class GardenPage extends Component {
         190500,
         126957,
         167888,
-        1,
         143075,
         189539,
         137834,
