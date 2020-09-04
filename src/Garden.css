@@ -1,9 +1,0 @@
-.Garden {
-    height: 100vh;
-}
-.Garden-plant-items {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    height: 90%;
-}
