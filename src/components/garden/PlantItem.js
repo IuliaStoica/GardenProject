@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./PlantItem.css";
+import Spinner from "../common/Spinner";
 import * as trefleApi from "../../api/trefleApi";
 
 class PlantItem extends Component {
@@ -13,8 +14,6 @@ class PlantItem extends Component {
   }
 
   componentDidMount() {
-    console.log("Hello from componentDidMount");
-
     trefleApi
       .getPlantById(this.props.id)
       .then((fetchedPlant) =>
@@ -23,7 +22,7 @@ class PlantItem extends Component {
   }
 
   render() {
-    let plantToRender = <p>Loading...</p>;
+    let plantToRender = <Spinner />;
     if (!this.state.isFetching) {
       plantToRender = !this.state.plant.error ? (
         <>
