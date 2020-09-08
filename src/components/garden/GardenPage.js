@@ -12,12 +12,12 @@ class GardenPage extends Component {
         173327,
         1,
         190500,
-        126957,
-        167888,
-        143075,
-        189539,
-        137834,
-        124198,
+        //126957,
+        //167888,
+        //143075,
+        //189539,
+        //137834,
+        //124198,
       ],
     };
   }
@@ -26,7 +26,7 @@ class GardenPage extends Component {
 
   render() {
     return (
-      <div className="GardenPage">
+      <div className="container margin_top">
         <p>Hello from garden component</p>
         <div className="GardenPage-plant-items">
           {this.state.plantsInGardenIds.map((id) => (

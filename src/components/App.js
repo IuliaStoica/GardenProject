@@ -8,7 +8,7 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <div className="container-fluid">
+      <div>
         <Header />
         <Switch>
           <Route exact path="/" component={GardenPage} />
