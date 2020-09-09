@@ -27,16 +27,26 @@ class GardenPage extends Component {
 
   render() {
     return (
-      <div className="container-fluid margin_top">
-        <p>Iulia's garden</p>
-        <div className="row mx-5">
-          {this.state.plantsInGardenIds.map((id) => (
-            <div key={id} className="col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-5">
-              <PlantItem id={id} />
-            </div>
-          ))}
+      <>
+        <div className="jumbotron">
+          <div className="d-flex align-items-center justify-content-center">
+            <h1 className="display-3">Iulia's garden</h1>
+          </div>
         </div>
-      </div>
+
+        <div className="container-fluid">
+          <div className="row mx-5">
+            {this.state.plantsInGardenIds.map((id) => (
+              <div
+                key={id}
+                className="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5"
+              >
+                <PlantItem id={id} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./PlantItem.css";
 import Spinner from "../common/Spinner";
+import sadPlant from "../imgs/sadPlant.png";
 import * as trefleApi from "../../api/trefleApi";
 
 class PlantItem extends Component {
@@ -22,27 +23,50 @@ class PlantItem extends Component {
   }
 
   render() {
-    let plantToRender = <Spinner />;
-    if (!this.state.isFetching) {
-      plantToRender = !this.state.plant.error ? (
-        <div className="card">
-          <img className="card-img-top" src={this.state.plant.data.image_url} />
-          <p>
-            Hello from plant item component{" "}
-            {this.state.plant.data.main_species_id}
-          </p>
-        </div>
-      ) : (
-        <div className="card">
-          <p>
-            Plant item with id {this.state.plant.data.main_species_id} could not
-            be found. Please contact support.
-          </p>
-        </div>
-      );
-    }
+    let fetchOk = !this.state.isFetching && !this.state.plant.error;
+    let fetchNotOk = !this.state.isFetching && this.state.plant.error;
 
-    return <>{plantToRender}</>;
+    return (
+      <div className="card h-100">
+        {this.state.isFetching && <Spinner />}
+        {fetchOk && (
+          <>
+            <img
+              className="card-img-top crop_image"
+              src={this.state.plant.data.image_url}
+              alt="plant image"
+            />
+            <div className="card-body">
+              <h5 className="card-title">
+                {this.state.plant.data.common_name}
+              </h5>
+
+              <button className="btn btn-outline-success btn-sm mx-1">
+                Edit
+              </button>
+              <button className="btn btn-outline-danger btn-sm mx-1">
+                Delete
+              </button>
+            </div>
+          </>
+        )}
+        {fetchNotOk && (
+          <>
+            <img
+              className="card-img-top scale_image"
+              src={sadPlant}
+              alt="plant image"
+            />
+            <div className="card-body">
+              <p>
+                Plant item with id {this.state.plant.data.main_species_id} could
+                not be found. Please contact support.
+              </p>
+            </div>
+          </>
+        )}
+      </div>
+    );
   }
 }
 
