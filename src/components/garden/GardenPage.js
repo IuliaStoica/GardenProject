@@ -28,13 +28,7 @@ class GardenPage extends Component {
   render() {
     return (
       <>
-        <div className="jumbotron">
-          <div className="d-flex align-items-center justify-content-center">
-            <h1 className="display-3">Iulia's garden</h1>
-          </div>
-        </div>
-
-        <div className="container-fluid">
+        <div className="container-fluid margin_top">
           <div className="row mx-5">
             {this.state.plantsInGardenIds.map((id) => (
               <div
