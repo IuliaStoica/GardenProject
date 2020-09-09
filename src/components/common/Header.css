@@ -1,0 +1,13 @@
+.navbar {
+  font-size: 1.5rem;
+  font-weight: 100;
+  background: white;
+}
+
+.navbar .nav-link {
+  color: #262729;
+}
+
+.navbar .nav-link:hover {
+  color: #229fa5;
+}

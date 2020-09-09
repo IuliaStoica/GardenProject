@@ -1,21 +1,3 @@
 body {
   font-family: "Nunito", sans-serif;
 }
-
-.navbar {
-  font-size: 1.5rem;
-  font-weight: 100;
-}
-
-.navbar .nav-link {
-  color: #262729;
-}
-
-.navbar .nav-link:hover {
-  color: #229fa5;
-}
-
-.navbar.scrolled {
-  background: #ebedf2;
-  transition: background 500ms;
-}

@@ -25,22 +25,24 @@ class PlantItem extends Component {
     let plantToRender = <Spinner />;
     if (!this.state.isFetching) {
       plantToRender = !this.state.plant.error ? (
-        <>
-          <img src={this.state.plant.data.image_url} />
+        <div className="card">
+          <img className="card-img-top" src={this.state.plant.data.image_url} />
           <p>
             Hello from plant item component{" "}
             {this.state.plant.data.main_species_id}
           </p>
-        </>
+        </div>
       ) : (
-        <p>
-          Plant item with id {this.state.plant.data.main_species_id} could not
-          be found. Please contact support.
-        </p>
+        <div className="card">
+          <p>
+            Plant item with id {this.state.plant.data.main_species_id} could not
+            be found. Please contact support.
+          </p>
+        </div>
       );
     }
 
-    return <div className="PlantItem">{plantToRender}</div>;
+    return <>{plantToRender}</>;
   }
 }
 

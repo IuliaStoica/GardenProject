@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./GardenPage.css";
+import "../App.css";
 import PlantItem from "./PlantItem";
 
 class GardenPage extends Component {
@@ -12,12 +13,12 @@ class GardenPage extends Component {
         173327,
         1,
         190500,
-        //126957,
-        //167888,
-        //143075,
-        //189539,
-        //137834,
-        //124198,
+        126957,
+        167888,
+        143075,
+        189539,
+        137834,
+        124198,
       ],
     };
   }
@@ -26,11 +27,13 @@ class GardenPage extends Component {
 
   render() {
     return (
-      <div className="container margin_top">
-        <p>Hello from garden component</p>
-        <div className="GardenPage-plant-items">
+      <div className="container-fluid margin_top">
+        <p>Iulia's garden</p>
+        <div className="row mx-5">
           {this.state.plantsInGardenIds.map((id) => (
-            <PlantItem id={id} key={id} />
+            <div key={id} className="col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-5">
+              <PlantItem id={id} />
+            </div>
           ))}
         </div>
       </div>
