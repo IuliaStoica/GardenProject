@@ -38,15 +38,18 @@ class PlantItem extends Component {
             />
             <div className="card-body">
               <h5 className="card-title">
-                {this.state.plant.data.common_name}
+                {this.state.plant.data.scientific_name}
               </h5>
-
-              <button className="btn btn-outline-success btn-sm mx-1">
+              <p className="card-text">
+                Also called {this.state.plant.data.common_name}. Is a species of
+                the {this.state.plant.data.family.name} family.
+              </p>
+            </div>
+            <div className="card_buttons d-flex justify-content-start">
+              <button className="btn btn-outline-success btn-sm mr-2">
                 Edit
               </button>
-              <button className="btn btn-outline-danger btn-sm mx-1">
-                Delete
-              </button>
+              <button className="btn btn-outline-danger btn-sm">Delete</button>
             </div>
           </>
         )}
@@ -58,7 +61,7 @@ class PlantItem extends Component {
               alt="plant image"
             />
             <div className="card-body">
-              <p>
+              <p className="card-text">
                 Plant item with id {this.state.plant.data.main_species_id} could
                 not be found. Please contact support.
               </p>

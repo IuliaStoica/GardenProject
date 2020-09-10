@@ -13,3 +13,7 @@
 .card-title {
   text-transform: capitalize;
 }
+
+.card_buttons {
+  padding: 1.25rem;
+}
