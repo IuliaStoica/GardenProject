@@ -5,6 +5,7 @@ let HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "development",
+  devtool: "eval-cheap-module-source-map",
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"), //the dist folder will not be created when you run with webpack-dev-server, the server keeps track of everything in memory

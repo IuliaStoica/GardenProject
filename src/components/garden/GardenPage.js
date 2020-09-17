@@ -15,10 +15,10 @@ class GardenPage extends Component {
         190500,
         126957,
         167888,
-        143075,
-        189539,
-        137834,
-        124198,
+        // 143075,
+        // 189539,
+        // 137834,
+        // 124198,
       ],
     };
   }
@@ -29,7 +29,7 @@ class GardenPage extends Component {
     return (
       <>
         <div className="container-fluid margin_top">
-          <div className="row mx-5">
+          <div className="row mx-5 padding_top">
             {this.state.plantsInGardenIds.map((id) => (
               <div
                 key={id}

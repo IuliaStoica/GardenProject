@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./PlantItem.css";
+import "../App.css";
 import Spinner from "../common/Spinner";
 import sadPlant from "../imgs/sadPlant.png";
 import * as trefleApi from "../../api/trefleApi";
@@ -38,11 +39,28 @@ class PlantItem extends Component {
             />
             <div className="card-body">
               <h5 className="card-title">
-                {this.state.plant.data.scientific_name}
+                <span className="capitalizeLetters">
+                  {this.state.plant.data.scientific_name}
+                </span>
               </h5>
               <p className="card-text">
-                Also called {this.state.plant.data.common_name}. Is a species of
-                the {this.state.plant.data.family.name} family.
+                {this.state.plant.data.common_name != null && (
+                  <>
+                    Also called{" "}
+                    <span className="capitalizeLetters">
+                      {this.state.plant.data.common_name}.&nbsp;
+                    </span>
+                  </>
+                )}
+                {this.state.plant.data.family.name != null && (
+                  <>
+                    Is a species of the{" "}
+                    <span className="capitalizeLetters">
+                      {this.state.plant.data.family.name}
+                    </span>{" "}
+                    family.
+                  </>
+                )}
               </p>
             </div>
             <div className="card_buttons d-flex justify-content-start">
