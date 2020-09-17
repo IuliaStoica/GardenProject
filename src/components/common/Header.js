@@ -5,10 +5,18 @@ import "./Header.css";
 const Header = () => {
   const activeNavLink = { color: "#229fa5" };
   return (
-    <div className="container-fluid">
-      <nav className="navbar justify-content-start fixed-top">
+    <nav className="navbar fixed-top">
+      <div className="container-fluid justify-content-start mx-5">
         <NavLink className="nav-link" activeStyle={activeNavLink} to="/" exact>
           HOME
+        </NavLink>
+        <NavLink
+          className="nav-link"
+          activeStyle={activeNavLink}
+          to="/search"
+          exact
+        >
+          SEARCH
         </NavLink>
         <NavLink
           className="nav-link"
@@ -18,8 +26,8 @@ const Header = () => {
         >
           ABOUT
         </NavLink>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 
