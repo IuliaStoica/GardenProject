@@ -1,0 +1,26 @@
+.form-inline .form-control {
+  width: 35vw;
+  max-width: 326px;
+}
+
+.btn-primary {
+  background-color: #229fa5;
+  border-color: #229fa5;
+}
+
+.btn-primary:hover {
+  background-color: #1e8e94;
+  border-color: #1e8e94;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #1e8e94;
+  border-color: #1e8e94;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+  background-color: #1e8e94;
+  border-color: #1e8e94;
+  box-shadow: 0 0 0 0.2rem rgba(26, 139, 145, 0.5);
+}
