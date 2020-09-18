@@ -20,7 +20,7 @@ class SearchPage extends Component {
   }
 
   submitSearchPlant(searchWord) {
-    this.setState({ isFetching: true, nbrFetched: -1 });
+    this.setState({ isFetching: true, nbrFetched: -1, error: false });
     trefleApi.getPlantsBySearchWord(searchWord).then((fetchedPlants) =>
       this.setState({
         plantsSearchResult: fetchedPlants.data,
