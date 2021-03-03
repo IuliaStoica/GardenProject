@@ -1,4 +1,6 @@
 # Get started
+This is a minimal React project setup with Webpack and Babel. 
+It's an example application for keeping track and take care of the plants in your garden.
 
 ## Needed software
 ##### Node.js
